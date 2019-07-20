@@ -21,3 +21,7 @@ Route::post('/login', 'AuthController@login');
 Route::post('/register', 'AuthController@register');
 Route::middleware('auth:api')->post('/logout', 'AuthController@logout');
 
+Route::get('/products', 'ProductController@index');
+Route::post('/products', 'ProductController@store');
+Route::patch('/products/{product}', 'ProductController@update');
+Route::delete('/products/{product}', 'ProductController@destroy');

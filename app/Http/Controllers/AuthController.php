@@ -31,6 +31,9 @@ class AuthController extends Controller
 
             return $response;
         } catch (\Throwable $th) {
+            if ($e->getCode() === 405) {
+                return response()->json('catch: ?? Method is not allowed ??', $e->getCode());
+            }
             if ($e->getCode() === 400) {
                 return response()->json('catch: Invalid Request. Please enter a username or a password.', $e->getCode());
             } else if ($e->getCode() === 401) {

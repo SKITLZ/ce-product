@@ -7,7 +7,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav w-100">
-                <template v-if="!currentUser">
+                <template v-if="!loggedIn">
                     <li class="link--login">
                         <router-link to="/login" class="nav-link">Login</router-link>
                     </li>
@@ -19,10 +19,7 @@
                     <li>
                         <router-link to="/products" class="nav-link">Products</router-link>
                     </li>
-                    <li class="link--username">
-                        <a class="nav-link" href="#">Username</a>
-                    </li>
-                    <li>
+                    <li class="link--logout">
                         <a class="nav-link" href="#" @click.prevent="logout">Logout</a>
                     </li>
                 </template>
@@ -37,13 +34,15 @@ export default {
     name: 'app-header',
     methods: {
         logout() {
-            this.$store.commit('logout');
-            this.$router.push('/login');
+            this.$store.dispatch('destroyToken')
+                .then(response => {
+                    this.$router.push({ name: 'Home' })
+                })
         }
     },
     computed: {
-        currentUser() {
-            return this.$store.getters.currentUser;
+        loggedIn() {
+            return this.$store.getters.loggedIn;
         }
     }
 }
@@ -54,7 +53,7 @@ export default {
     .page-header {
         .link {
             &--login,
-            &--username {
+            &--logout {
                 margin-left: auto;
             }
         }

@@ -54439,7 +54439,7 @@ router.beforeEach(function (to, from, next) {
     return record.meta.requiresAuth;
   })) {
     // this route requires auth, check if logged in
-    // if not, redirect to login page.
+    // if false, redirect to login page.
     if (!store.getters.loggedIn) {
       next({
         name: 'Login'
@@ -54451,7 +54451,7 @@ router.beforeEach(function (to, from, next) {
     return record.meta.requiresVisitor;
   })) {
     // this route requires auth, check if logged in
-    // if not, redirect to login page.
+    // if true, redirect to login page.
     if (store.getters.loggedIn) {
       next({
         name: 'Home'

@@ -34,6 +34,7 @@ export default {
     name: 'app-header',
     methods: {
         logout() {
+            this.$store.dispatch('clearProducts')
             this.$store.dispatch('destroyToken')
                 .then(response => {
                     this.$router.push({ name: 'Home' })

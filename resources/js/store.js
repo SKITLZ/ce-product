@@ -1,16 +1,26 @@
 export default {
     state: {
+        products: [],
         token: localStorage.getItem('access_token') || null,
     },
     mutations: {
+        clearProducts(state) {
+            state.products = []
+        },
         retrieveToken(state, token) {
             state.token = token
         },
         destroyToken(state) {
             state.token = null
-        }
+        },
+        getProducts(state, products) {
+            state.products = products
+        },
     },
     actions: {
+        clearProducts(context) {
+            context.commit('clearProducts');
+        },
         register(context, data) {
             return new Promise((resolve, reject) => {   // doing this for register async redirect
                 axios.post('/api/register', {
@@ -61,11 +71,25 @@ export default {
                         })
                 })
             }
-        }
+        },
+        getProducts(context) {
+            axios.defaults.headers.common['Authorization'] = `Bearer ${context.state.token}`
+            axios.get('/api/products')
+                .then(response => {
+                    console.log(response.data)
+                    context.commit('getProducts', response.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        },
     },
     getters: {
         loggedIn(state) {
             return state.token !== null
-        }
+        },
+        getProducts(state) {
+            return state.products
+        },
     },
 }

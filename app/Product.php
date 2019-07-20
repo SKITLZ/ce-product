@@ -8,4 +8,9 @@ class Product extends Model
 {
     // protected $fillable = ['name', 'description', 'price', 'weight', 'calories', 'protein', 'fat', 'carbohydrate'];
     protected $guarded = [];    // the same as the $filllable array above
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

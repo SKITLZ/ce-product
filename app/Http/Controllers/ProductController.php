@@ -27,16 +27,26 @@ class ProductController extends Controller
     {
         $data = $request->validate([
             'name' => ['required', 'string'],
-            'description' => ['string'],
-            'price' => ['required','numeric'],
-            'weight' => ['required','numeric'],
-            'calories' => ['integer'],
-            'protein' => ['numeric'],
-            'fat' => ['numeric'],
-            'carbohydrate' => ['numeric'],
+            'description' => ['nullable','string'],
+            'price' => ['required', 'numeric'],
+            'weight' => ['required', 'numeric'],
+            'calories' => ['nullable', 'integer'],
+            'protein' => ['nullable', 'numeric'],
+            'fat' => ['nullable', 'numeric'],
+            'carbohydrate' => ['nullable', 'numeric'],
         ]);
 
-        $product = Product::create($data);
+        $product = Product::create([
+            'user_id' => auth()->user()->id,
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'weight' => $request->weight,
+            'calories' => $request->calories,
+            'protein' => $request->protein,
+            'fat' => $request->fat,
+            'carbohydrate' => $request->carbohydrate,
+        ]);
 
         return response($product, 201);
     }
@@ -50,6 +60,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        if ($product->user_id !== auth()->user()->id) {
+            return response()->json('Unauthorized', 401);
+        }
+
         $data = $request->validate([
             'name' => ['required', 'string'],
             'description' => ['string'],
@@ -74,6 +88,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        if ($product->user_id !== auth()->user()->id) {
+            return response()->json('Unauthorized', 401);
+        }
+        
         $product->delete();
 
         return response('Product was successfully deleted', 200);

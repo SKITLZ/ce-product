@@ -9,18 +9,18 @@
             <ul class="navbar-nav w-100">
                 <template v-if="!loggedIn">
                     <li class="link--login">
-                        <router-link to="/login" class="nav-link">Login</router-link>
+                        <router-link to="/login" class="nav-link">Войти</router-link>
                     </li>
                     <li>
-                        <router-link to="/register" class="nav-link">Register</router-link> 
+                        <router-link to="/register" class="nav-link">Зарегистрироваться</router-link> 
                     </li>
                 </template>
                 <template v-else>
                     <li>
-                        <router-link to="/products" class="nav-link">Products</router-link>
+                        <router-link to="/products" class="nav-link">Продукты</router-link>
                     </li>
                     <li class="link--logout">
-                        <a class="nav-link" href="#" @click.prevent="logout">Logout</a>
+                        <a class="nav-link" href="#" @click.prevent="logout">Выйти</a>
                     </li>
                 </template>
             </ul>

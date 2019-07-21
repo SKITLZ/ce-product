@@ -2,7 +2,7 @@
 <div class="row justify-content-center">
     <div class="col-md-4">
         <div class="card">
-            <div class="card-header">Login</div>
+            <div class="card-header">Авторизация</div>
             <div class="card-body">
                 <form @submit.prevent="login">
                     <div class="form-group row">
@@ -10,11 +10,11 @@
                         <input class="form-control" type="email" name="email" id="email" v-model="email">
                     </div>
                     <div class="form-group row">
-                        <label for="password">Password:</label>
+                        <label for="password">Пароль:</label>
                         <input class="form-control" type="password" name="password" id="password" v-model="password">
                     </div>
                     <div class="form-group row">
-                        <input type="submit" value="Login">
+                        <input type="submit" value="Войти">
                     </div>
                 </form>
             </div>

@@ -8,37 +8,37 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
+                <th scope="col">Название</th>
+                <th scope="col">Описание</th>
                 <th scope="col"
                     class="filter-toggle"
                     :class="{'desc': prop == 'price' && desc == true, 'asc': prop == 'price' && desc == false}"
-                    @click="toggleFilter('price')">Price</th>
+                    @click="toggleFilter('price')">Цена</th>
                 <th scope="col"
                     class="filter-toggle"
                     :class="{'desc': prop == 'weight' && desc == true, 'asc': prop == 'weight' && desc == false}"
                     @click="toggleFilter('weight')"
-                >Weight</th>
+                >Вес, г.</th>
                 <th scope="col"
                     class="filter-toggle"
                     :class="{'desc': prop == 'calories' && desc == true, 'asc': prop == 'calories' && desc == false}"
                     @click="toggleFilter('calories')"
-                >Calories</th>
+                >Калории</th>
                 <th scope="col"
                     class="filter-toggle"
                     :class="{'desc': prop == 'protein' && desc == true, 'asc': prop == 'protein' && desc == false}"
                     @click="toggleFilter('protein')"
-                >Protein</th>
+                >Белки</th>
                 <th scope="col"
                     class="filter-toggle"
                     :class="{'desc': prop == 'fat' && desc == true, 'asc': prop == 'fat' && desc == false}"
                     @click="toggleFilter('fat')"
-                >Fat</th>
+                >Жиры</th>
                 <th scope="col"
                     class="filter-toggle"
                     :class="{'desc': prop == 'carbohydrate' && desc == true, 'asc': prop == 'carbohydrate' && desc == false}"
                     @click="toggleFilter('carbohydrate')"
-                >Carbs</th>
+                >Углеводы</th>
             </tr>
         </thead>
         <tbody>

@@ -1875,6 +1875,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'home'
 });
@@ -38472,32 +38473,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "home container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-body" }, [
-              _c("h1", { staticClass: "home__header" }, [_vm._v("CE Product")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "home__sub-header" }, [
-                _vm._v(
-                  "choose the most cost-efficient product for your situation"
-                )
-              ])
-            ])
+  return _c("div", { staticClass: "home container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "card card-default" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h1", { staticClass: "home__header" }, [_vm._v("CE Product")]),
+            _vm._v(" "),
+            _c("p", { staticClass: "home__sub-header" }, [
+              _vm._v(
+                "выберите самый экономически эффективный продукт для Вашей ситуации"
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "p",
+              [
+                _c("router-link", { attrs: { to: { name: "ProductList" } } }, [
+                  _vm._v("Перейти в список продуктов")
+                ])
+              ],
+              1
+            )
           ])
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38594,7 +38598,7 @@ var render = function() {
                                 staticClass: "nav-link",
                                 attrs: { to: "/login" }
                               },
-                              [_vm._v("Login")]
+                              [_vm._v("Войти")]
                             )
                           ],
                           1
@@ -38609,7 +38613,7 @@ var render = function() {
                                 staticClass: "nav-link",
                                 attrs: { to: "/register" }
                               },
-                              [_vm._v("Register")]
+                              [_vm._v("Зарегистрироваться")]
                             )
                           ],
                           1
@@ -38625,7 +38629,7 @@ var render = function() {
                                 staticClass: "nav-link",
                                 attrs: { to: "/products" }
                               },
-                              [_vm._v("Products")]
+                              [_vm._v("Продукты")]
                             )
                           ],
                           1
@@ -38644,7 +38648,7 @@ var render = function() {
                                 }
                               }
                             },
-                            [_vm._v("Logout")]
+                            [_vm._v("Выйти")]
                           )
                         ])
                       ]
@@ -38705,7 +38709,7 @@ var render = function() {
   return _c("div", { staticClass: "row justify-content-center" }, [
     _c("div", { staticClass: "col-md-4" }, [
       _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" }, [_vm._v("Login")]),
+        _c("div", { staticClass: "card-header" }, [_vm._v("Авторизация")]),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
           _c(
@@ -38747,7 +38751,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "form-group row" }, [
                 _c("label", { attrs: { for: "password" } }, [
-                  _vm._v("Password:")
+                  _vm._v("Пароль:")
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -38787,7 +38791,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group row" }, [
-      _c("input", { attrs: { type: "submit", value: "Login" } })
+      _c("input", { attrs: { type: "submit", value: "Войти" } })
     ])
   }
 ]
@@ -38815,7 +38819,7 @@ var render = function() {
   return _c("div", { staticClass: "row justify-content-center" }, [
     _c("div", { staticClass: "col-md-4" }, [
       _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" }, [_vm._v("Register")]),
+        _c("div", { staticClass: "card-header" }, [_vm._v("Регистрация")]),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
           _c(
@@ -38830,7 +38834,7 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "form-group row" }, [
-                _c("label", { attrs: { for: "name" } }, [_vm._v("Name:")]),
+                _c("label", { attrs: { for: "name" } }, [_vm._v("Имя:")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -38883,7 +38887,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "form-group row" }, [
                 _c("label", { attrs: { for: "password" } }, [
-                  _vm._v("Password:")
+                  _vm._v("Пароль:")
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -38923,7 +38927,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group row" }, [
-      _c("input", { attrs: { type: "submit", value: "Register" } })
+      _c("input", { attrs: { type: "submit", value: "Зарегистрироваться" } })
     ])
   }
 ]
@@ -39379,9 +39383,9 @@ var render = function() {
     _c("table", { staticClass: "table table-striped" }, [
       _c("thead", [
         _c("tr", [
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+          _c("th", { attrs: { scope: "col" } }, [_vm._v("Название")]),
           _vm._v(" "),
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("Description")]),
+          _c("th", { attrs: { scope: "col" } }, [_vm._v("Описание")]),
           _vm._v(" "),
           _c(
             "th",
@@ -39398,7 +39402,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Price")]
+            [_vm._v("Цена")]
           ),
           _vm._v(" "),
           _c(
@@ -39416,7 +39420,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Weight")]
+            [_vm._v("Вес, г.")]
           ),
           _vm._v(" "),
           _c(
@@ -39434,7 +39438,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Calories")]
+            [_vm._v("Калории")]
           ),
           _vm._v(" "),
           _c(
@@ -39452,7 +39456,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Protein")]
+            [_vm._v("Белки")]
           ),
           _vm._v(" "),
           _c(
@@ -39470,7 +39474,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Fat")]
+            [_vm._v("Жиры")]
           ),
           _vm._v(" "),
           _c(
@@ -39488,7 +39492,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Carbs")]
+            [_vm._v("Углеводы")]
           )
         ])
       ]),

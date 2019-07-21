@@ -28,12 +28,12 @@ class ProductController extends Controller
         $data = $request->validate([
             'name' => ['required', 'string'],
             'description' => ['nullable','string'],
-            'price' => ['required', 'numeric'],
-            'weight' => ['required', 'numeric'],
-            'calories' => ['nullable', 'integer'],
-            'protein' => ['nullable', 'numeric'],
-            'fat' => ['nullable', 'numeric'],
-            'carbohydrate' => ['nullable', 'numeric'],
+            'price' => ['required', 'numeric', 'min:0', 'max:99999'],
+            'weight' => ['required', 'numeric', 'min:0', 'max:999999'],
+            'calories' => ['nullable', 'integer', 'min:0'],
+            'protein' => ['nullable', 'numeric', 'min:0', 'max:100'],
+            'fat' => ['nullable', 'numeric', 'min:0', 'max:100'],
+            'carbohydrate' => ['nullable', 'numeric', 'min:0', 'max:100'],
         ]);
 
         $product = Product::create([
@@ -66,13 +66,13 @@ class ProductController extends Controller
 
         $data = $request->validate([
             'name' => ['required', 'string'],
-            'description' => ['string'],
-            'price' => ['required','numeric'],
-            'weight' => ['required','numeric'],
-            'calories' => ['integer'],
-            'protein' => ['numeric'],
-            'fat' => ['numeric'],
-            'carbohydrate' => ['numeric'],
+            'description' => ['nullable','string'],
+            'price' => ['required', 'numeric', 'min:0', 'max:99999'],
+            'weight' => ['required', 'numeric', 'min:0', 'max:999999'],
+            'calories' => ['nullable', 'integer', 'min:0'],
+            'protein' => ['nullable', 'numeric', 'min:0', 'max:100'],
+            'fat' => ['nullable', 'numeric', 'min:0', 'max:100'],
+            'carbohydrate' => ['nullable', 'numeric', 'min:0', 'max:100'],
         ]);
 
         $product->update($data);

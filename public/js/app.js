@@ -2294,7 +2294,7 @@ __webpack_require__.r(__webpack_exports__);
       var portions = this.product.weight / 100;
       var per100 = portions / this.product.price;
       var eff = per100 * this.product[prop];
-      return Math.floor(eff * 100) / 100;
+      return Math.round(eff * 100) / 100;
     },
     deleteProduct: function deleteProduct() {
       this.$store.dispatch('deleteProduct', this.product.id);
@@ -6880,7 +6880,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".home__header {\n  margin-bottom: 0;\n}\n.home__sub-header {\n  font-size: 20px;\n  line-height: 30px;\n}\n.form-control {\n  color: #000;\n}\n.form-control:focus {\n  color: #000;\n}\n.form-control::-webkit-input-placeholder {\n  color: #999;\n}\n.form-control::-moz-placeholder {\n  color: #999;\n}\n.form-control:-ms-input-placeholder {\n  color: #999;\n}\n.form-control::-ms-input-placeholder {\n  color: #999;\n}\n.form-control::placeholder {\n  color: #999;\n}\n.table th, .table td {\n  padding: 6px;\n  font-size: 13px;\n}", ""]);
+exports.push([module.i, ".home__header {\n  margin-bottom: 0;\n}\n.home__sub-header {\n  font-size: 20px;\n  line-height: 30px;\n}\n.form-control {\n  color: #000;\n}\n.form-control:focus {\n  color: #000;\n}\n.form-control::-webkit-input-placeholder {\n  color: #999;\n}\n.form-control::-moz-placeholder {\n  color: #999;\n}\n.form-control:-ms-input-placeholder {\n  color: #999;\n}\n.form-control::-ms-input-placeholder {\n  color: #999;\n}\n.form-control::placeholder {\n  color: #999;\n}\n.table th, .table td {\n  padding: 6px;\n  font-size: 13px;\n}\n.table p {\n  margin: 0;\n}", ""]);
 
 // exports
 
@@ -39228,45 +39228,28 @@ var render = function() {
     _c("td", [_vm._v(_vm._s(_vm.product.price))]),
     _vm._v(" "),
     _c("td", [
-      _vm._v(
-        _vm._s(_vm.product.weight) +
-          "  (" +
-          _vm._s(_vm.calcEff("weight")) +
-          " / 1р)"
-      )
+      _vm._v(_vm._s(_vm.product.weight) + "  "),
+      _c("p", [_vm._v("(" + _vm._s(_vm.calcEff("weight")) + " / 1р)")])
     ]),
     _vm._v(" "),
     _c("td", [
-      _vm._v(
-        _vm._s(_vm.product.calories) +
-          " (" +
-          _vm._s(_vm.calcEff("calories")) +
-          " / 1р)"
-      )
+      _vm._v(_vm._s(_vm.product.calories) + " "),
+      _c("p", [_vm._v("(" + _vm._s(_vm.calcEff("calories")) + " / 1р)")])
     ]),
     _vm._v(" "),
     _c("td", [
-      _vm._v(
-        _vm._s(_vm.product.protein) +
-          " (" +
-          _vm._s(_vm.calcEff("protein")) +
-          " / 1р)"
-      )
+      _vm._v(_vm._s(_vm.product.protein) + " "),
+      _c("p", [_vm._v("(" + _vm._s(_vm.calcEff("protein")) + " / 1р)")])
     ]),
     _vm._v(" "),
     _c("td", [
-      _vm._v(
-        _vm._s(_vm.product.fat) + " (" + _vm._s(_vm.calcEff("fat")) + " / 1р)"
-      )
+      _vm._v(_vm._s(_vm.product.fat) + " "),
+      _c("p", [_vm._v("(" + _vm._s(_vm.calcEff("fat")) + " / 1р)")])
     ]),
     _vm._v(" "),
     _c("td", [
-      _vm._v(
-        _vm._s(_vm.product.carbohydrate) +
-          " (" +
-          _vm._s(_vm.calcEff("carbohydrate")) +
-          " / 1р)"
-      )
+      _vm._v(_vm._s(_vm.product.carbohydrate) + " "),
+      _c("p", [_vm._v("(" + _vm._s(_vm.calcEff("carbohydrate")) + " / 1р)")])
     ]),
     _vm._v(" "),
     _c("td", { staticClass: "text-center px-0" }, [

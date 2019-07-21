@@ -39,8 +39,13 @@ export default {
         color: #999
     }
 }
-.table th, .table td {
-    padding: 6px;
-    font-size: 13px;
+.table {
+    th, td {
+        padding: 6px;
+        font-size: 13px;
+    }
+    p {
+        margin: 0;
+    }
 }
 </style>

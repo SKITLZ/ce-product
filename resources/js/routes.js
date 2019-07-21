@@ -3,7 +3,7 @@ import Login from './components/auth/Login.vue';
 import Register from './components/auth/Register.vue';
 import Products from './components/products/Products.vue';
 import ProductList from './components/products/ProductList.vue';
-import CreateProduct from './components/products/CreateProduct.vue';
+import ProductForm from './components/products/ProductForm.vue';
 
 export const routes = [
     {
@@ -36,14 +36,14 @@ export const routes = [
         },
         children: [
             {
-                path: '/',
+                path: '/products',
                 name: 'ProductList',
                 component: ProductList
             },
             {
-                path: '/new',
-                name: 'CreateProduct',
-                component: CreateProduct
+                path: '/products/form',
+                name: 'ProductForm',
+                component: ProductForm
             },
         ],
     },

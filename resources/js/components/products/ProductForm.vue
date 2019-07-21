@@ -1,7 +1,8 @@
 <template>
 <div>
-    <h2>Добавить продукт</h2>
-    <form @submit.prevent="createProduct">
+    <h2 v-if="edit == false">Добавить продукт</h2>
+    <h2 v-else>Редактировать продукт</h2>
+    <form @submit.prevent="submit">
         <div class="form-row">
             <form-field class="col-md-4"
                         name="name"
@@ -69,7 +70,8 @@
                         v-model="product.carbohydrate" :errors="errors.carbohydrate" />
         </div>
         <p><span class="text-danger">*</span> - поля, обязательные для заполнения</p>
-        <button type="submit" class="btn btn-primary">Добавить</button>
+        <button type="submit" class="btn btn-primary" v-if="edit == false">Добавить</button>
+        <button type="submit" class="btn btn-primary" v-else>Сохранить</button>
     </form>
 </div>
 </template>
@@ -91,12 +93,19 @@ export default {
                 carbohydrate: null,
             },
             errors: {},
+            edit: false,
         }
     },
     components: {
         FormField,
     },
     methods: {
+        submit() {
+            if (this.edit == true)
+                this.editProduct();
+            else
+                this.createProduct();
+        },
         createProduct() {
             this.$store.dispatch('createProduct', this.product)
                 .then(response => {
@@ -105,7 +114,25 @@ export default {
                 .catch(error => {
                     this.errors = error.response.data.errors
                 })
+        },
+        editProduct() {
+            this.$store.dispatch('updateProduct', this.product)
+                .then(response => {
+                    this.$router.push({ name: 'ProductList'})
+                })
+                .catch(error => {
+                    this.errors = error.response.data.errors
+                })
+        },
+        isEdit() {
+            if (this.$route.params.product) {
+                this.edit = true;
+                this.product = this.$route.params.product;
+            }
         }
+    },
+    mounted() {
+        this.isEdit();
     }
 }
 </script>

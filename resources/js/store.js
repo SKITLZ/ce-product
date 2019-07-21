@@ -19,6 +19,19 @@ export default {
         createProduct(state, product) {
             state.products.push(product)
         },
+        updateProduct(state, product) {
+            const index = state.products.findIndex(item => item.id == product.id)
+            state.products.splice(index, 1, {
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                weight: product.weight,
+                calories: product.calories,
+                protein: product.protein,
+                fat: product.fat,
+                carbohydrate: product.carbohydrate,
+            })
+        },
         deleteProduct(state, id) {
             const index = state.products.findIndex(item => item.id == id)
             state.products.splice(index, 1)
@@ -110,6 +123,24 @@ export default {
                     .catch(error => {
                         reject(error)
                     })
+            })
+        },
+        updateProduct(context, product) {
+            axios.patch(`/api/products/${product.id}`, {
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                weight: product.weight,
+                calories: product.calories,
+                protein: product.protein,
+                fat: product.fat,
+                carbohydrate: product.carbohydrate,
+            })
+            .then(response => {
+                context.commit('updateProduct', response.data)
+            })
+            .catch(error => {
+                console.log(error)
             })
         },
         deleteProduct(context, id) {

@@ -6914,7 +6914,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".home__header {\n  margin-bottom: 0;\n}\n.home__sub-header {\n  font-size: 20px;\n  line-height: 30px;\n}\n.form-control {\n  color: #000;\n}\n.form-control:focus {\n  color: #000;\n}\n.form-control::-webkit-input-placeholder {\n  color: #999;\n}\n.form-control::-moz-placeholder {\n  color: #999;\n}\n.form-control:-ms-input-placeholder {\n  color: #999;\n}\n.form-control::-ms-input-placeholder {\n  color: #999;\n}\n.form-control::placeholder {\n  color: #999;\n}\n.table th, .table td {\n  padding: 6px;\n  font-size: 13px;\n}\n.table p {\n  margin: 0;\n}", ""]);
+exports.push([module.i, ".home__header {\n  margin-bottom: 0;\n}\n.home__sub-header {\n  font-size: 20px;\n  line-height: 30px;\n}\n.form-control {\n  color: #000;\n}\n.form-control:focus {\n  color: #000;\n}\n.form-control::-webkit-input-placeholder {\n  color: #999;\n}\n.form-control::-moz-placeholder {\n  color: #999;\n}\n.form-control:-ms-input-placeholder {\n  color: #999;\n}\n.form-control::-ms-input-placeholder {\n  color: #999;\n}\n.form-control::placeholder {\n  color: #999;\n}\n.table th, .table td {\n  padding: 6px;\n  font-size: 13px;\n}\n.table p {\n  margin: 0;\n  margin-top: 20px;\n}\n.table span + p {\n  margin-top: 0;\n}", ""]);
 
 // exports
 
@@ -39020,30 +39020,49 @@ var render = function() {
       _vm._v(_vm._s(_vm.product.description))
     ]),
     _vm._v(" "),
-    _c("td", [_vm._v(_vm._s(_vm.product.price))]),
+    _c("td", [
+      _vm.product.price
+        ? _c("span", [_vm._v(_vm._s(_vm.product.price))])
+        : _vm._e()
+    ]),
     _vm._v(" "),
     _c("td", [
-      _vm._v(_vm._s(_vm.product.weight) + "  "),
+      _vm.product.weight
+        ? _c("span", [_vm._v(_vm._s(_vm.product.weight))])
+        : _vm._e(),
+      _vm._v(" "),
       _c("p", [_vm._v("(" + _vm._s(_vm.calcEff("weight")) + " / 1р)")])
     ]),
     _vm._v(" "),
     _c("td", [
-      _vm._v(_vm._s(_vm.product.calories) + " "),
+      _vm.product.calories
+        ? _c("span", [_vm._v(_vm._s(_vm.product.calories))])
+        : _vm._e(),
+      _vm._v(" "),
       _c("p", [_vm._v("(" + _vm._s(_vm.calcEff("calories")) + " / 1р)")])
     ]),
     _vm._v(" "),
     _c("td", [
-      _vm._v(_vm._s(_vm.product.protein) + " "),
+      _vm.product.protein
+        ? _c("span", [_vm._v(_vm._s(_vm.product.protein))])
+        : _vm._e(),
+      _vm._v(" "),
       _c("p", [_vm._v("(" + _vm._s(_vm.calcEff("protein")) + " / 1р)")])
     ]),
     _vm._v(" "),
     _c("td", [
-      _vm._v(_vm._s(_vm.product.fat) + " "),
+      _vm.product.fat
+        ? _c("span", [_vm._v(_vm._s(_vm.product.fat))])
+        : _vm._e(),
+      _vm._v(" "),
       _c("p", [_vm._v("(" + _vm._s(_vm.calcEff("fat")) + " / 1р)")])
     ]),
     _vm._v(" "),
     _c("td", [
-      _vm._v(_vm._s(_vm.product.carbohydrate) + " "),
+      _vm.product.carbohydrate
+        ? _c("span", [_vm._v(_vm._s(_vm.product.carbohydrate))])
+        : _vm._e(),
+      _vm._v(" "),
       _c("p", [_vm._v("(" + _vm._s(_vm.calcEff("carbohydrate")) + " / 1р)")])
     ]),
     _vm._v(" "),

@@ -46,6 +46,10 @@ export default {
     }
     p {
         margin: 0;
+        margin-top: 20px;
+    }
+    span + p {
+        margin-top: 0;
     }
 }
 </style>

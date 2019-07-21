@@ -6,6 +6,7 @@
                 <div class="card-body">
                     <h1 class="home__header">CE Product</h1>
                     <p class="home__sub-header">выберите самый экономически эффективный продукт для Вашей ситуации</p>
+                    <p><small>даже если это просто покушать в макдональдсе</small></p>
                     <p><router-link :to="{name: 'ProductList'}">Перейти в список продуктов</router-link></p>
                 </div>
             </div>
@@ -26,6 +27,7 @@ export default {
         margin-bottom: 0;
     }
     &__sub-header {
+        margin-bottom: 0;
         font-size: 20px;
         line-height: 30px;
     }

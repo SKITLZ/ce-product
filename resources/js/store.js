@@ -96,7 +96,6 @@ export default {
             axios.defaults.headers.common['Authorization'] = `Bearer ${context.state.token}`
             axios.get('/api/products')
                 .then(response => {
-                    console.log(response.data)
                     context.commit('getProducts', response.data)
                 })
                 .catch(error => {

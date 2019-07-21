@@ -7,12 +7,13 @@
                 <form @submit.prevent="login">
                     <div class="form-group row">
                         <label for="email">Email:</label>
-                        <input class="form-control" type="email" name="email" id="email" v-model="email">
+                        <input class="form-control" type="email" name="email" id="email" v-model="email" required>
                     </div>
                     <div class="form-group row">
                         <label for="password">Пароль:</label>
-                        <input class="form-control" type="password" name="password" id="password" v-model="password">
+                        <input class="form-control" type="password" minlength="8" name="password" id="password" v-model="password" required>
                     </div>
+                    <p class="text-danger row mb-2" v-if="errorStatus == 401">Неправильные данные</p>
                     <div class="form-group row">
                         <input type="submit" value="Войти">
                     </div>
@@ -30,6 +31,7 @@ export default {
             authError: false,
             email: '',
             password: '',
+            errorStatus: null,
         }
     },
     methods: {
@@ -40,6 +42,9 @@ export default {
             })
                 .then(response => {
                     this.$router.push({ name: 'ProductList'})
+                })
+                .catch(error => {
+                    this.errorStatus = error.response.status
                 })
         }
     }

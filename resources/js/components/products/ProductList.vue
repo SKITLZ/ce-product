@@ -4,47 +4,53 @@
         <h2 class="mb-0">Список продуктов</h2>
         <router-link :to="{name: 'ProductForm'}">Добавить продукт</router-link>
     </div>
-    <p class="mb-3">Кликните на заголовок нужного Вам поля для сортировки</p>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Название</th>
-                <th scope="col">Описание</th>
-                <th scope="col"
-                    class="filter-toggle"
-                    :class="{'desc': prop == 'price' && desc == true, 'asc': prop == 'price' && desc == false}"
-                    @click="toggleFilter('price')">Цена</th>
-                <th scope="col"
-                    class="filter-toggle"
-                    :class="{'desc': prop == 'weight' && desc == true, 'asc': prop == 'weight' && desc == false}"
-                    @click="toggleFilter('weight')"
-                >Вес, г.</th>
-                <th scope="col"
-                    class="filter-toggle"
-                    :class="{'desc': prop == 'calories' && desc == true, 'asc': prop == 'calories' && desc == false}"
-                    @click="toggleFilter('calories')"
-                >Калории</th>
-                <th scope="col"
-                    class="filter-toggle"
-                    :class="{'desc': prop == 'protein' && desc == true, 'asc': prop == 'protein' && desc == false}"
-                    @click="toggleFilter('protein')"
-                >Белки</th>
-                <th scope="col"
-                    class="filter-toggle"
-                    :class="{'desc': prop == 'fat' && desc == true, 'asc': prop == 'fat' && desc == false}"
-                    @click="toggleFilter('fat')"
-                >Жиры</th>
-                <th scope="col"
-                    class="filter-toggle"
-                    :class="{'desc': prop == 'carbohydrate' && desc == true, 'asc': prop == 'carbohydrate' && desc == false}"
-                    @click="toggleFilter('carbohydrate')"
-                >Углеводы</th>
-            </tr>
-        </thead>
-        <tbody>
-            <product v-for="product in getProducts" :key="product.id" :product="product" />
-        </tbody>
-    </table>
+    <template v-if="getProducts.length">
+        <p class="mb-3">Кликните на заголовок нужного Вам поля для сортировки</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Название</th>
+                    <th scope="col">Описание</th>
+                    <th scope="col"
+                        class="filter-toggle"
+                        :class="{'desc': prop == 'price' && desc == true, 'asc': prop == 'price' && desc == false}"
+                        @click="toggleFilter('price')">Цена</th>
+                    <th scope="col"
+                        class="filter-toggle"
+                        :class="{'desc': prop == 'weight' && desc == true, 'asc': prop == 'weight' && desc == false}"
+                        @click="toggleFilter('weight')"
+                    >Вес, г.</th>
+                    <th scope="col"
+                        class="filter-toggle"
+                        :class="{'desc': prop == 'calories' && desc == true, 'asc': prop == 'calories' && desc == false}"
+                        @click="toggleFilter('calories')"
+                    >Калории</th>
+                    <th scope="col"
+                        class="filter-toggle"
+                        :class="{'desc': prop == 'protein' && desc == true, 'asc': prop == 'protein' && desc == false}"
+                        @click="toggleFilter('protein')"
+                    >Белки</th>
+                    <th scope="col"
+                        class="filter-toggle"
+                        :class="{'desc': prop == 'fat' && desc == true, 'asc': prop == 'fat' && desc == false}"
+                        @click="toggleFilter('fat')"
+                    >Жиры</th>
+                    <th scope="col"
+                        class="filter-toggle"
+                        :class="{'desc': prop == 'carbohydrate' && desc == true, 'asc': prop == 'carbohydrate' && desc == false}"
+                        @click="toggleFilter('carbohydrate')"
+                    >Углеводы</th>
+                </tr>
+            </thead>
+            <tbody>
+                <product v-for="product in getProducts" :key="product.id" :product="product" />
+            </tbody>
+        </table>
+    </template>
+    <template v-else>
+        <p class="mt-3">Вы ещё не добавили ни один продукт</p>
+        <p>Пожалуйста перейдите по <router-link :to="{name: 'ProductForm'}">ссылке</router-link> чтобы <router-link :to="{name: 'ProductForm'}">добавить продукт</router-link></p>
+    </template>
 </div>
 </template>
 

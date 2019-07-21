@@ -2025,7 +2025,7 @@ __webpack_require__.r(__webpack_exports__);
         password: this.password
       }).then(function (response) {
         _this.$router.push({
-          name: 'Home'
+          name: 'ProductList'
         });
       });
     }
@@ -2349,6 +2349,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Product_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Product.vue */ "./resources/js/components/products/Product.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -39158,7 +39164,7 @@ var render = function() {
               attrs: {
                 name: "description",
                 label: "Описание",
-                placeholder: "Отличный источник белка",
+                placeholder: "Хороший белок",
                 errors: _vm.errors.description
               },
               model: {
@@ -39186,7 +39192,7 @@ var render = function() {
                 step: 0.01,
                 min: 0,
                 max: 99999,
-                placeholder: "450.50",
+                placeholder: "270",
                 required: "1",
                 errors: _vm.errors.price
               },
@@ -39203,7 +39209,7 @@ var render = function() {
               staticClass: "col-md-4",
               attrs: {
                 name: "weight",
-                label: "Вес, г",
+                label: "Вес, г.",
                 type: "number",
                 step: 0.01,
                 min: 0,
@@ -39362,150 +39368,182 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "d-flex align-items-center justify-content-between mb-2" },
-      [
-        _c("h2", { staticClass: "mb-0" }, [_vm._v("Список продуктов")]),
-        _vm._v(" "),
-        _c("router-link", { attrs: { to: { name: "ProductForm" } } }, [
-          _vm._v("Добавить продукт")
-        ])
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("p", { staticClass: "mb-3" }, [
-      _vm._v("Кликните на заголовок нужного Вам поля для сортировки")
-    ]),
-    _vm._v(" "),
-    _c("table", { staticClass: "table table-striped" }, [
-      _c("thead", [
-        _c("tr", [
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("Название")]),
-          _vm._v(" "),
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("Описание")]),
-          _vm._v(" "),
-          _c(
-            "th",
-            {
-              staticClass: "filter-toggle",
-              class: {
-                desc: _vm.prop == "price" && _vm.desc == true,
-                asc: _vm.prop == "price" && _vm.desc == false
-              },
-              attrs: { scope: "col" },
-              on: {
-                click: function($event) {
-                  return _vm.toggleFilter("price")
-                }
-              }
-            },
-            [_vm._v("Цена")]
-          ),
-          _vm._v(" "),
-          _c(
-            "th",
-            {
-              staticClass: "filter-toggle",
-              class: {
-                desc: _vm.prop == "weight" && _vm.desc == true,
-                asc: _vm.prop == "weight" && _vm.desc == false
-              },
-              attrs: { scope: "col" },
-              on: {
-                click: function($event) {
-                  return _vm.toggleFilter("weight")
-                }
-              }
-            },
-            [_vm._v("Вес, г.")]
-          ),
-          _vm._v(" "),
-          _c(
-            "th",
-            {
-              staticClass: "filter-toggle",
-              class: {
-                desc: _vm.prop == "calories" && _vm.desc == true,
-                asc: _vm.prop == "calories" && _vm.desc == false
-              },
-              attrs: { scope: "col" },
-              on: {
-                click: function($event) {
-                  return _vm.toggleFilter("calories")
-                }
-              }
-            },
-            [_vm._v("Калории")]
-          ),
-          _vm._v(" "),
-          _c(
-            "th",
-            {
-              staticClass: "filter-toggle",
-              class: {
-                desc: _vm.prop == "protein" && _vm.desc == true,
-                asc: _vm.prop == "protein" && _vm.desc == false
-              },
-              attrs: { scope: "col" },
-              on: {
-                click: function($event) {
-                  return _vm.toggleFilter("protein")
-                }
-              }
-            },
-            [_vm._v("Белки")]
-          ),
-          _vm._v(" "),
-          _c(
-            "th",
-            {
-              staticClass: "filter-toggle",
-              class: {
-                desc: _vm.prop == "fat" && _vm.desc == true,
-                asc: _vm.prop == "fat" && _vm.desc == false
-              },
-              attrs: { scope: "col" },
-              on: {
-                click: function($event) {
-                  return _vm.toggleFilter("fat")
-                }
-              }
-            },
-            [_vm._v("Жиры")]
-          ),
-          _vm._v(" "),
-          _c(
-            "th",
-            {
-              staticClass: "filter-toggle",
-              class: {
-                desc: _vm.prop == "carbohydrate" && _vm.desc == true,
-                asc: _vm.prop == "carbohydrate" && _vm.desc == false
-              },
-              attrs: { scope: "col" },
-              on: {
-                click: function($event) {
-                  return _vm.toggleFilter("carbohydrate")
-                }
-              }
-            },
-            [_vm._v("Углеводы")]
-          )
-        ])
-      ]),
-      _vm._v(" "),
+  return _c(
+    "div",
+    [
       _c(
-        "tbody",
-        _vm._l(_vm.getProducts, function(product) {
-          return _c("product", { key: product.id, attrs: { product: product } })
-        }),
+        "div",
+        {
+          staticClass: "d-flex align-items-center justify-content-between mb-2"
+        },
+        [
+          _c("h2", { staticClass: "mb-0" }, [_vm._v("Список продуктов")]),
+          _vm._v(" "),
+          _c("router-link", { attrs: { to: { name: "ProductForm" } } }, [
+            _vm._v("Добавить продукт")
+          ])
+        ],
         1
-      )
-    ])
-  ])
+      ),
+      _vm._v(" "),
+      _vm.getProducts.length
+        ? [
+            _c("p", { staticClass: "mb-3" }, [
+              _vm._v("Кликните на заголовок нужного Вам поля для сортировки")
+            ]),
+            _vm._v(" "),
+            _c("table", { staticClass: "table table-striped" }, [
+              _c("thead", [
+                _c("tr", [
+                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Название")]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Описание")]),
+                  _vm._v(" "),
+                  _c(
+                    "th",
+                    {
+                      staticClass: "filter-toggle",
+                      class: {
+                        desc: _vm.prop == "price" && _vm.desc == true,
+                        asc: _vm.prop == "price" && _vm.desc == false
+                      },
+                      attrs: { scope: "col" },
+                      on: {
+                        click: function($event) {
+                          return _vm.toggleFilter("price")
+                        }
+                      }
+                    },
+                    [_vm._v("Цена")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "th",
+                    {
+                      staticClass: "filter-toggle",
+                      class: {
+                        desc: _vm.prop == "weight" && _vm.desc == true,
+                        asc: _vm.prop == "weight" && _vm.desc == false
+                      },
+                      attrs: { scope: "col" },
+                      on: {
+                        click: function($event) {
+                          return _vm.toggleFilter("weight")
+                        }
+                      }
+                    },
+                    [_vm._v("Вес, г.")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "th",
+                    {
+                      staticClass: "filter-toggle",
+                      class: {
+                        desc: _vm.prop == "calories" && _vm.desc == true,
+                        asc: _vm.prop == "calories" && _vm.desc == false
+                      },
+                      attrs: { scope: "col" },
+                      on: {
+                        click: function($event) {
+                          return _vm.toggleFilter("calories")
+                        }
+                      }
+                    },
+                    [_vm._v("Калории")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "th",
+                    {
+                      staticClass: "filter-toggle",
+                      class: {
+                        desc: _vm.prop == "protein" && _vm.desc == true,
+                        asc: _vm.prop == "protein" && _vm.desc == false
+                      },
+                      attrs: { scope: "col" },
+                      on: {
+                        click: function($event) {
+                          return _vm.toggleFilter("protein")
+                        }
+                      }
+                    },
+                    [_vm._v("Белки")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "th",
+                    {
+                      staticClass: "filter-toggle",
+                      class: {
+                        desc: _vm.prop == "fat" && _vm.desc == true,
+                        asc: _vm.prop == "fat" && _vm.desc == false
+                      },
+                      attrs: { scope: "col" },
+                      on: {
+                        click: function($event) {
+                          return _vm.toggleFilter("fat")
+                        }
+                      }
+                    },
+                    [_vm._v("Жиры")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "th",
+                    {
+                      staticClass: "filter-toggle",
+                      class: {
+                        desc: _vm.prop == "carbohydrate" && _vm.desc == true,
+                        asc: _vm.prop == "carbohydrate" && _vm.desc == false
+                      },
+                      attrs: { scope: "col" },
+                      on: {
+                        click: function($event) {
+                          return _vm.toggleFilter("carbohydrate")
+                        }
+                      }
+                    },
+                    [_vm._v("Углеводы")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.getProducts, function(product) {
+                  return _c("product", {
+                    key: product.id,
+                    attrs: { product: product }
+                  })
+                }),
+                1
+              )
+            ])
+          ]
+        : [
+            _c("p", { staticClass: "mt-3" }, [
+              _vm._v("Вы ещё не добавили ни один продукт")
+            ]),
+            _vm._v(" "),
+            _c(
+              "p",
+              [
+                _vm._v("Пожалуйста перейдите по "),
+                _c("router-link", { attrs: { to: { name: "ProductForm" } } }, [
+                  _vm._v("ссылке")
+                ]),
+                _vm._v(" чтобы "),
+                _c("router-link", { attrs: { to: { name: "ProductForm" } } }, [
+                  _vm._v("добавить продукт")
+                ])
+              ],
+              1
+            )
+          ]
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

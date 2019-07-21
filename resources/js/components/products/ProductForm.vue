@@ -14,7 +14,7 @@
             <form-field class="col-md-8"
                         name="description"
                         label="Описание"
-                        placeholder="Отличный источник белка"
+                        placeholder="Хороший белок"
                         v-model="product.description" :errors="errors.description" />
         </div>
         <div class="form-row">
@@ -23,13 +23,13 @@
                         label="Цена"
                         type="number"
                         :step="0.01" :min="0" :max="99999"
-                        placeholder="450.50"
+                        placeholder="270"
                         required="1"
                         v-model="product.price" :errors="errors.price" />
 
             <form-field class="col-md-4"
                         name="weight"
-                        label="Вес, г"
+                        label="Вес, г."
                         type="number"
                         :step="0.01" :min="0" :max="999999"
                         placeholder="1000"

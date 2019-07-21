@@ -56219,7 +56219,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     products: [],
-    filter: 'id',
     token: localStorage.getItem('access_token') || null
   },
   mutations: {
@@ -56259,7 +56258,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     retrieveToken: function retrieveToken(context, credentials) {
       return new Promise(function (resolve, reject) {
-        // doing this for login async redirect
         axios.post('/api/login', {
           username: credentials.email,
           password: credentials.password
@@ -56267,9 +56265,9 @@ __webpack_require__.r(__webpack_exports__);
           var token = response.data.access_token;
           localStorage.setItem('access_token', token);
           context.commit('retrieveToken', token);
-          resolve(response); // doing this for login async redirect
+          resolve(response);
         })["catch"](function (error) {
-          reject(error); // doing this for login async redirect
+          reject(error);
         });
       });
     },
@@ -56278,17 +56276,16 @@ __webpack_require__.r(__webpack_exports__);
 
       if (context.getters.loggedIn) {
         return new Promise(function (resolve, reject) {
-          // doing this for logout async redirect
           axios.post('/api/logout').then(function (response) {
             localStorage.removeItem('access_token');
             context.commit('destroyToken');
-            resolve(response); // doing this for logout async redirect
+            resolve(response);
           })["catch"](function (error) {
             localStorage.removeItem('access_token'); // in kase someone's trying to access their own local storage key
 
             context.commit('destroyToken'); // in kase someone's trying to access their own local storage key
 
-            reject(error); // doing this for logout async redirect
+            reject(error);
           });
         });
       }
@@ -56305,7 +56302,6 @@ __webpack_require__.r(__webpack_exports__);
     createProduct: function createProduct(context, product) {
       axios.defaults.headers.common['Authorization'] = "Bearer ".concat(context.state.token);
       return new Promise(function (resolve, reject) {
-        // doing this for createProduct async function
         axios.post('/api/products', {
           name: product.name,
           description: product.description,
@@ -56317,9 +56313,9 @@ __webpack_require__.r(__webpack_exports__);
           carbohydrate: product.carbohydrate
         }).then(function (response) {
           context.commit('createProduct', product);
-          resolve(response); // doing this for createProduct async function
+          resolve(response);
         })["catch"](function (error) {
-          reject(error); // doing this for createProduct async function
+          reject(error);
         });
       });
     }

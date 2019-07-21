@@ -19,6 +19,10 @@ export default {
         createProduct(state, product) {
             state.products.push(product)
         },
+        deleteProduct(state, id) {
+            const index = state.products.findIndex(item => item.id == id)
+            state.products.splice(index, 1)
+        },
     },
     actions: {
         clearProducts(context) {
@@ -107,7 +111,16 @@ export default {
                         reject(error)
                     })
             })
-        }
+        },
+        deleteProduct(context, id) {
+            axios.delete(`/api/products/${id}`)
+                .then(response => {
+                    context.commit('deleteProduct', id)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        },
     },
     getters: {
         loggedIn(state) {

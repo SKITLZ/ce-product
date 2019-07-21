@@ -10,7 +10,7 @@
     <td>{{product.carbohydrate}} ({{calcEff('carbohydrate')}} / 1р)</td>
     <td class="text-center px-0">
         <button class="btn btn-sm btn-warning" type="button">Изменить</button>
-        <button class="btn btn-sm btn-danger" type="button">Удалить</button>
+        <button class="btn btn-sm btn-danger" type="button" @click="deleteProduct">Удалить</button>
     </td>
 </tr>
 </template>
@@ -24,6 +24,9 @@ export default {
             const per100 = portions / this.product.price;
             const eff = per100 * this.product[prop];
             return Math.floor(eff*100)/100;
+        },
+        deleteProduct() {
+            this.$store.dispatch('deleteProduct', this.product.id)
         }
     }
 }

@@ -40,6 +40,7 @@ export default {
     }
 }
 .table th, .table td {
-    padding: 8px;
+    padding: 6px;
+    font-size: 13px;
 }
 </style>

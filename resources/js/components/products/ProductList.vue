@@ -1,9 +1,10 @@
 <template>
 <div>
-    <div class="d-flex align-items-center justify-content-between mb-3">
+    <div class="d-flex align-items-center justify-content-between mb-2">
         <h2 class="mb-0">Список продуктов</h2>
         <router-link :to="{name: 'CreateProduct'}">Добавить продукт</router-link>
     </div>
+    <p class="mb-3">Кликните на заголовок нужного Вам поля для сортировки</p>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -92,7 +93,7 @@ export default {
                     return aEff - bEff;
                 });
             }
-            
+
             return products;
         },
     },

@@ -2288,7 +2288,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['product']
+  props: ['product'],
+  methods: {
+    calcEff: function calcEff(prop) {
+      var portions = this.product.weight / 100;
+      var per100 = portions / this.product.price;
+      var eff = per100 * this.product[prop];
+      return Math.floor(eff * 100) / 100;
+    }
+  }
 });
 
 /***/ }),
@@ -2303,6 +2311,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Product_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Product.vue */ "./resources/js/components/products/Product.vue");
+//
 //
 //
 //
@@ -6868,7 +6877,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".home__header {\n  margin-bottom: 0;\n}\n.home__sub-header {\n  font-size: 20px;\n  line-height: 30px;\n}\n.form-control {\n  color: #000;\n}\n.form-control:focus {\n  color: #000;\n}\n.form-control::-webkit-input-placeholder {\n  color: #999;\n}\n.form-control::-moz-placeholder {\n  color: #999;\n}\n.form-control:-ms-input-placeholder {\n  color: #999;\n}\n.form-control::-ms-input-placeholder {\n  color: #999;\n}\n.form-control::placeholder {\n  color: #999;\n}\n.table th, .table td {\n  padding: 8px;\n}", ""]);
+exports.push([module.i, ".home__header {\n  margin-bottom: 0;\n}\n.home__sub-header {\n  font-size: 20px;\n  line-height: 30px;\n}\n.form-control {\n  color: #000;\n}\n.form-control:focus {\n  color: #000;\n}\n.form-control::-webkit-input-placeholder {\n  color: #999;\n}\n.form-control::-moz-placeholder {\n  color: #999;\n}\n.form-control:-ms-input-placeholder {\n  color: #999;\n}\n.form-control::-ms-input-placeholder {\n  color: #999;\n}\n.form-control::placeholder {\n  color: #999;\n}\n.table th, .table td {\n  padding: 6px;\n  font-size: 13px;\n}", ""]);
 
 // exports
 
@@ -39205,25 +39214,57 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("tr", [
-    _c("td", { staticStyle: { "max-width": "200px" } }, [
+    _c("td", { staticStyle: { "max-width": "180px" } }, [
       _vm._v(_vm._s(_vm.product.name))
     ]),
     _vm._v(" "),
-    _c("td", { staticStyle: { "max-width": "260px" } }, [
+    _c("td", { staticStyle: { "max-width": "240px" } }, [
       _vm._v(_vm._s(_vm.product.description))
     ]),
     _vm._v(" "),
     _c("td", [_vm._v(_vm._s(_vm.product.price))]),
     _vm._v(" "),
-    _c("td", [_vm._v(_vm._s(_vm.product.weight))]),
+    _c("td", [
+      _vm._v(
+        _vm._s(_vm.product.weight) +
+          "  (" +
+          _vm._s(_vm.calcEff("weight")) +
+          " / 1р)"
+      )
+    ]),
     _vm._v(" "),
-    _c("td", [_vm._v(_vm._s(_vm.product.calories))]),
+    _c("td", [
+      _vm._v(
+        _vm._s(_vm.product.calories) +
+          " (" +
+          _vm._s(_vm.calcEff("calories")) +
+          " / 1р)"
+      )
+    ]),
     _vm._v(" "),
-    _c("td", [_vm._v(_vm._s(_vm.product.protein))]),
+    _c("td", [
+      _vm._v(
+        _vm._s(_vm.product.protein) +
+          " (" +
+          _vm._s(_vm.calcEff("protein")) +
+          " / 1р)"
+      )
+    ]),
     _vm._v(" "),
-    _c("td", [_vm._v(_vm._s(_vm.product.fat))]),
+    _c("td", [
+      _vm._v(
+        _vm._s(_vm.product.fat) + " (" + _vm._s(_vm.calcEff("fat")) + " / 1р)"
+      )
+    ]),
     _vm._v(" "),
-    _c("td", [_vm._v(_vm._s(_vm.product.carbohydrates))]),
+    _c("td", [
+      _vm._v(
+        _vm._s(_vm.product.carbohydrate) +
+          " (" +
+          _vm._s(_vm.calcEff("carbohydrate")) +
+          " / 1р)"
+      )
+    ]),
     _vm._v(" "),
     _vm._m(0)
   ])
@@ -39272,7 +39313,7 @@ var render = function() {
   return _c("div", [
     _c(
       "div",
-      { staticClass: "d-flex align-items-center justify-content-between mb-3" },
+      { staticClass: "d-flex align-items-center justify-content-between mb-2" },
       [
         _c("h2", { staticClass: "mb-0" }, [_vm._v("Список продуктов")]),
         _vm._v(" "),
@@ -39282,6 +39323,10 @@ var render = function() {
       ],
       1
     ),
+    _vm._v(" "),
+    _c("p", { staticClass: "mb-3" }, [
+      _vm._v("Кликните на заголовок нужного Вам поля для сортировки")
+    ]),
     _vm._v(" "),
     _c("table", { staticClass: "table table-striped" }, [
       _c("thead", [

@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="home container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card card-default">
@@ -28,5 +28,18 @@ export default {
         font-size: 20px;
         line-height: 30px;
     }
+}
+
+.form-control {
+    color: #000;
+    &:focus {
+        color: #000;
+    }
+    &::placeholder {
+        color: #999
+    }
+}
+.table th, .table td {
+    padding: 8px;
 }
 </style>

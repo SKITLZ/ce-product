@@ -1,6 +1,7 @@
 export default {
     state: {
         products: [],
+        filter: 'id',
         token: localStorage.getItem('access_token') || null,
     },
     mutations: {
@@ -15,6 +16,9 @@ export default {
         },
         getProducts(state, products) {
             state.products = products
+        },
+        createProduct(state, product) {
+            state.products.push(product)
         },
     },
     actions: {
@@ -83,6 +87,28 @@ export default {
                     console.log(error)
                 })
         },
+        createProduct(context, product) {
+            axios.defaults.headers.common['Authorization'] = `Bearer ${context.state.token}`
+            return new Promise((resolve, reject) => {   // doing this for createProduct async function
+                axios.post('/api/products', {
+                    name: product.name,
+                    description: product.description,
+                    price: product.price,
+                    weight: product.weight,
+                    calories: product.calories,
+                    protein: product.protein,
+                    fat: product.fat,
+                    carbohydrate: product.carbohydrate,
+                })
+                    .then(response => {
+                        context.commit('createProduct', product)
+                        resolve(response)   // doing this for createProduct async function
+                    })
+                    .catch(error => {
+                        reject(error)       // doing this for createProduct async function
+                    })
+            })
+        }
     },
     getters: {
         loggedIn(state) {

@@ -14,6 +14,16 @@ export default {
     name: 'main-app',
     components: {
         PageHeader
+    },
+    methods: {
+        throttleRequests() {
+            setInterval(() => {
+                this.$store.dispatch('throttleRequests', false);
+            }, 60*1000);
+        },
+    },
+    mounted() {
+        this.throttleRequests();
     }
 }
 </script>

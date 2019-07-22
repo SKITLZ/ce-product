@@ -1907,6 +1907,18 @@ __webpack_require__.r(__webpack_exports__);
   name: 'main-app',
   components: {
     PageHeader: _PageHeader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    throttleRequests: function throttleRequests() {
+      var _this = this;
+
+      setInterval(function () {
+        _this.$store.dispatch('throttleRequests', false);
+      }, 60 * 1000);
+    }
+  },
+  mounted: function mounted() {
+    this.throttleRequests();
   }
 });
 
@@ -56475,9 +56487,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     products: [],
-    token: localStorage.getItem('access_token') || null
+    token: localStorage.getItem('access_token') || null,
+    productsReceived: false
   },
   mutations: {
+    throttleRequests: function throttleRequests(state, received) {
+      state.productsReceived = received;
+    },
     clearProducts: function clearProducts(state) {
       state.products = [];
     },
@@ -56516,6 +56532,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   actions: {
+    throttleRequests: function throttleRequests(context, received) {
+      context.commit('throttleRequests', received);
+    },
     clearProducts: function clearProducts(context) {
       context.commit('clearProducts');
     },
@@ -56568,9 +56587,11 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     getProducts: function getProducts(context) {
+      if (this.state.productsReceived == true) return;
       axios.defaults.headers.common['Authorization'] = "Bearer ".concat(context.state.token);
       axios.get('/api/products').then(function (response) {
         context.commit('getProducts', response.data);
+        context.commit('throttleRequests', true);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -56588,7 +56609,7 @@ __webpack_require__.r(__webpack_exports__);
           fat: product.fat,
           carbohydrate: product.carbohydrate
         }).then(function (response) {
-          context.commit('createProduct', product);
+          context.commit('createProduct', response.data);
           resolve(response);
         })["catch"](function (error) {
           reject(error);

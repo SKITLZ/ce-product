@@ -2,8 +2,12 @@ export default {
     state: {
         products: [],
         token: localStorage.getItem('access_token') || null,
+        productsReceived: false,
     },
     mutations: {
+        throttleRequests(state, received) {
+            state.productsReceived = received;
+        },
         clearProducts(state) {
             state.products = []
         },
@@ -38,6 +42,9 @@ export default {
         },
     },
     actions: {
+        throttleRequests(context, received) {
+            context.commit('throttleRequests', received);
+        },
         clearProducts(context) {
             context.commit('clearProducts');
         },
@@ -93,10 +100,14 @@ export default {
             }
         },
         getProducts(context) {
+            if (this.state.productsReceived == true)
+                return;
+
             axios.defaults.headers.common['Authorization'] = `Bearer ${context.state.token}`
             axios.get('/api/products')
                 .then(response => {
                     context.commit('getProducts', response.data)
+                    context.commit('throttleRequests', true);
                 })
                 .catch(error => {
                     console.log(error)
@@ -116,7 +127,7 @@ export default {
                     carbohydrate: product.carbohydrate,
                 })
                     .then(response => {
-                        context.commit('createProduct', product)
+                        context.commit('createProduct', response.data)
                         resolve(response)
                     })
                     .catch(error => {

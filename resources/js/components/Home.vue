@@ -5,7 +5,7 @@
             <div class="card card-default">
                 <div class="card-body">
                     <h1 class="home__header">CE Product</h1>
-                    <p class="home__sub-header">выберите самый экономически эффективный продукт для Вашей ситуации</p>
+                    <p class="home__sub-header">Выберите самый экономически эффективный продукт питания для Вашей ситуации</p>
                     <p><small>даже если это просто покушать в макдональдсе</small></p>
                     <p><router-link :to="{name: 'ProductList'}">Перейти в список продуктов</router-link></p>
                 </div>

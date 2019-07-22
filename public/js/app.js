@@ -2010,6 +2010,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38505,7 +38506,7 @@ var render = function() {
             _vm._v(" "),
             _c("p", { staticClass: "home__sub-header" }, [
               _vm._v(
-                "выберите самый экономически эффективный продукт для Вашей ситуации"
+                "Выберите самый экономически эффективный продукт питания для Вашей ситуации"
               )
             ]),
             _vm._v(" "),
@@ -38746,6 +38747,20 @@ var render = function() {
         _c("div", { staticClass: "card-header" }, [_vm._v("Авторизация")]),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
+          _c(
+            "p",
+            { staticClass: "row" },
+            [
+              _vm._v("Нет аккаунта? "),
+              _c(
+                "router-link",
+                { staticClass: "ml-1", attrs: { to: { name: "Register" } } },
+                [_vm._v("Зарегистрируйтесь")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
           _c(
             "form",
             {
@@ -56423,7 +56438,7 @@ var routes = [{
   }
 }, {
   path: '/register',
-  name: 'Reguster',
+  name: 'Register',
   component: _components_auth_Register_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   meta: {
     requiresVisitor: true

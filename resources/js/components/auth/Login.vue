@@ -4,6 +4,7 @@
         <div class="card">
             <div class="card-header">Авторизация</div>
             <div class="card-body">
+                <p class="row">Нет аккаунта? <router-link class="ml-1" :to="{name: 'Register'}">Зарегистрируйтесь</router-link></p>
                 <form @submit.prevent="login">
                     <div class="form-group row">
                         <label for="email">Email:</label>

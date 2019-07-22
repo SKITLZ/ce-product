@@ -21,7 +21,7 @@ export const routes = [
     },
     {
         path: '/register',
-        name: 'Reguster',
+        name: 'Register',
         component: Register,
         meta: {
             requiresVisitor: true,

@@ -1,11 +1,9 @@
 # ce-product
-Выберите самый экономически эффективный продукт питания для Вашей ситуации.
+Find the best cost-efficient product for your situation.
 
-После внесения в продуктов в таблицу, их можно отсортировать по колличеству необходимого нутриента за 1рубль.
-Тем самым находится самое экономически выгодное предложение для конкретной цели.
+After adding food items into the table, you can sort it by the required nutrient per 1 ruble (or your currency).
+This way you can find the most cost-efficient offer for your goal.
 
-Проект был сделан для использования в личных целях и чтобы заодно получше разорабться во vue, vuex. 
+Project was made for personal use, learning and having fun with technology stack.
 
-Для бекенда используется Laravel. Реализован CRUD.
-
-Запущен на http://skitlz.ru (до 25.08.2019)
+Stack: Vue.js, Laravel.
